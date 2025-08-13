@@ -164,6 +164,36 @@ The following variables are scoped to `#silktide-wrapper` to prevent them from b
 --cookieIconBackgroundColor: #FFFFFF; /* Cookie icon background color */
 ```
 
+## Copy into the head and change styles as needed
+
+#silktide-wrapper {
+  /* Global */
+  --focus: 0 0 0 2px #ffffff, 0 0 0 4px #000000, 0 0 0 6px #ffffff;
+  --boxShadow: -5px 5px 10px 0px #00000012, 0px 0px 50px 0px #0000001a;
+  --fontFamily: "Helvetica Neue", "Segoe UI", Arial, sans-serif;
+  /* Color Scheme */
+  --primaryColor: #533BE2;
+  --backgroundColor: #FFFFFF;
+  --textColor: #253B48;
+  /* Backdrop */
+  --backdropBackgroundColor: #00000033;
+  --backdropBackgroundBlur: 0px;
+  /* Cookie Icon */
+  --cookieIconColor: #533BE2;
+  --cookieIconBackgroundColor: #FFFFFF;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  pointer-events: none;
+  border: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 ## License
 This project is licensed under the [MIT License](./LICENSE).
 

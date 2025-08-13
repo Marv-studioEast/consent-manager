@@ -67,18 +67,18 @@
 /* --------------------------------
   Focus Styles
 -------------------------------- */
-#silktide-wrapper a:focus,
+/* #silktide-wrapper a:focus,
 #silktide-wrapper #silktide-banner button:focus,
 #silktide-wrapper #silktide-modal button:focus,
 #silktide-wrapper #silktide-cookie-icon:focus {
   outline: none;
   box-shadow: var(--focus);
-  border-radius: 5px;
+  border-radius: 1px;
 }
 
 #silktide-wrapper #silktide-cookie-icon:focus {
   border-radius: 50%;
-}
+} */
 
 /* --------------------------------
   General Styles
@@ -369,11 +369,11 @@
   cursor: pointer;
 }
 
-#silktide-modal .switch:focus-within {
+/* #silktide-modal .switch:focus-within {
   outline: none;
   box-shadow: var(--focus);
   border-radius: 25px;
-}
+} */
 
 #silktide-modal .switch input {
   opacity: 0;
