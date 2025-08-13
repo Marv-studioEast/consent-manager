@@ -9,24 +9,25 @@
   Global Styles - These elements exist in the main DOM and styling is limited to positioning and animation
 -------------------------------- */
 /* Wrapper (Global) */
-#silktide-wrapper {
-  /* Reset all inherited styles */
+/* #silktide-wrapper {
+
   all: unset;
 
-  /* Global */
+
   --focus: 0 0 0 2px #ffffff, 0 0 0 4px #000000, 0 0 0 6px #ffffff;
   --boxShadow: -5px 5px 10px 0px #00000012, 0px 0px 50px 0px #0000001a;
   --fontFamily: "Helvetica Neue", "Segoe UI", Arial, sans-serif;
-  /* Color Scheme */
+
   --primaryColor: #533BE2;
   --backgroundColor: #FFFFFF;
   --textColor: #253B48;
-  /* Backdrop */
+
   --backdropBackgroundColor: #00000033;
   --backdropBackgroundBlur: 0px;
-  /* Cookie Icon */
+
   --cookieIconColor: #533BE2;
   --cookieIconBackgroundColor: #FFFFFF;
+
   position: fixed;
   bottom: 0;
   right: 0;
@@ -38,7 +39,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
 /* Backdrop (Global) */
 #silktide-backdrop-global {
