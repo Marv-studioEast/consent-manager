@@ -1,32 +1,19 @@
 /* 
   Silktide Consent Manager - https://silktide.com/consent-manager/  
 
-  Complete isolation from parent styles - maximum protection
+  Styles are at risked of being overridden by styles coming from the site the consent manager is used on.
+  To help prevent this, global wrapper elements are prefixed with "#silktide-"
 */
 
 /* --------------------------------
-  Complete Isolation Solution
+  Global Styles - These elements exist in the main DOM and styling is limited to positioning and animation
 -------------------------------- */
-/* Complete isolation from parent styles */
+/* Wrapper (Global) */
 #silktide-wrapper {
-  all: unset !important;
-  isolation: isolate !important;
-  contain: layout style paint !important;
-  
-  /* Redefine everything explicitly */
-  position: fixed !important;
-  bottom: 0 !important;
-  right: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  z-index: 99999 !important;
-  pointer-events: none !important;
-  border: 0px !important;
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  
-  /* CSS Variables */
+  /* Reset all inherited styles */
+  all: unset;
+
+  /* Global */
   --focus: 0 0 0 2px #ffffff, 0 0 0 4px #000000, 0 0 0 6px #ffffff;
   --boxShadow: -5px 5px 10px 0px #00000012, 0px 0px 50px 0px #0000001a;
   --fontFamily: "Helvetica Neue", "Segoe UI", Arial, sans-serif;
@@ -40,299 +27,280 @@
   /* Cookie Icon */
   --cookieIconColor: #533BE2;
   --cookieIconBackgroundColor: #FFFFFF;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  pointer-events: none;
+  border: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-#silktide-wrapper *,
-#silktide-wrapper *::before,
-#silktide-wrapper *::after {
-  all: unset !important;
-  box-sizing: border-box !important;
-}
-
-/* --------------------------------
-  Global Styles
--------------------------------- */
 /* Backdrop (Global) */
 #silktide-backdrop-global {
-  all: unset !important;
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  pointer-events: auto !important;
-  border: 0px !important;
-  display: none !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+  border: 0px;
+  display: none;
 }
 
 /* --------------------------------
   Links
 -------------------------------- */
 #silktide-wrapper a {
-  all: unset !important;
-  display: inline-block !important;
-  color: var(--primaryColor) !important;
-  text-decoration: underline !important;
-  cursor: pointer !important;
-  font-family: var(--fontFamily) !important;
+  all: unset;
+  display: inline-block;
+  color: var(--primaryColor);
+  text-decoration: underline;
 }
 
 #silktide-wrapper a:hover {
-  cursor: pointer !important;
-  color: var(--textColor) !important;
+  cursor: pointer;
+  color: var(--textColor);
 }
+
+/* --------------------------------
+  Focus Styles
+-------------------------------- */
+/* #silktide-wrapper a:focus,
+#silktide-wrapper #silktide-banner button:focus,
+#silktide-wrapper #silktide-modal button:focus,
+#silktide-wrapper #silktide-cookie-icon:focus {
+  outline: none;
+  box-shadow: var(--focus);
+  border-radius: 1px;
+}
+
+#silktide-wrapper #silktide-cookie-icon:focus {
+  border-radius: 50%;
+} */
 
 /* --------------------------------
   General Styles
 -------------------------------- */
 
 #silktide-wrapper .st-button {
-  all: unset !important;
-  color: var(--backgroundColor) !important;
-  background-color: var(--primaryColor) !important;
-  border: 2px solid var(--primaryColor) !important;
-  padding: 10px 20px !important;
-  text-decoration: none !important;
-  text-align: center !important;
-  display: inline-block !important;
-  font-size: 16px !important;
-  line-height: 24px !important;
-  cursor: pointer !important;
-  border-radius: 5px !important;
-  box-sizing: border-box !important;
-  font-family: var(--fontFamily) !important;
-  font-weight: normal !important;
-  white-space: nowrap !important;
+  color: var(--backgroundColor);
+  background-color: var(--primaryColor);
+  border: 2px solid var(--primaryColor);
+  padding: 10px 20px;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  line-height: 24px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#silktide-wrapper .st-button--primary {
 }
 
 #silktide-wrapper .st-button--primary:hover {
-  background-color: var(--backgroundColor) !important;
-  color: var(--primaryColor) !important;
+  background-color: var(--backgroundColor);
+  color: var(--primaryColor);
 }
 
 #silktide-wrapper .st-button--secondary {
-  background-color: var(--backgroundColor) !important;
-  color: var(--primaryColor) !important;
+  background-color: var(--backgroundColor);
+  color: var(--primaryColor);
 }
 
 #silktide-wrapper .st-button--secondary:hover {
-  background-color: var(--primaryColor) !important;
-  color: var(--backgroundColor) !important;
+  background-color: var(--primaryColor);
+  color: var(--backgroundColor);
 }
 
 /* --------------------------------
   Banner
 -------------------------------- */
 #silktide-banner {
-  all: unset !important;
-  font-family: var(--fontFamily) !important;
-  color: var(--textColor) !important;
-  background-color: var(--backgroundColor) !important;
-  box-sizing: border-box !important;
-  padding: 32px !important;
-  border-radius: 5px !important;
-  pointer-events: auto !important;
-  border: 0px !important;
-  position: fixed !important;
-  bottom: 16px !important;
-  right: 16px !important;
-  width: 600px !important;
-  max-width: calc(100% - 32px) !important;
-  transform: translate(0, -20px) !important;
-  opacity: 0 !important;
-  animation: silktide-slideInDown 350ms ease-out forwards !important;
-  animation-delay: 0.3s !important;
-  box-shadow: -5px 5px 10px 0px #00000012, 0px 0px 50px 0px #0000001a !important;
-  display: block !important;
+  font-family: var(--fontFamily);
+  color: var(--textColor);
+  background-color: var(--backgroundColor);
+  box-sizing: border-box;
+  padding: 32px;
+  border-radius: 5px;
+  pointer-events: auto;
+  border: 0px;
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  width: 600px;
+  max-width: calc(100% - 32px);
+  transform: translate(0, -20px);
+  opacity: 0;
+  animation: silktide-slideInDown 350ms ease-out forwards;
+  animation-delay: 0.3s;
+  box-shadow: -5px 5px 10px 0px #00000012, 0px 0px 50px 0px #0000001a;
+}
+
+#silktide-banner:focus {
+  border-radius: 50%;
 }
 
 #silktide-banner.center {
-  top: 50% !important;
-  left: 50% !important;
-  bottom: auto !important;
-  right: auto !important;
-  position: fixed !important;
-  transform: translate(-50%, calc(-50% - 20px)) !important;
-  animation: silktide-slideInDown-center 350ms ease-out forwards !important;
+  top: 50%;
+  left: 50%;
+  bottom: auto;
+  right: auto;
+  position: fixed;
+  transform: translate(-50%, calc(-50% - 20px));
+  animation: silktide-slideInDown-center 350ms ease-out forwards;
 }
 
 #silktide-banner.bottomLeft {
-  bottom: 16px !important;
-  left: 16px !important;
-  right: auto !important;
-  position: fixed !important;
+  bottom: 16px;
+  left: 16px;
+  position: fixed;
 }
 
 #silktide-banner.bottomCenter {
-  bottom: 16px !important;
-  left: 50% !important;
-  right: auto !important;
-  position: fixed !important;
-  transform: translate(-50%, -20px) !important;
-  animation: silktide-slideInDown-bottomCenter 350ms ease-out forwards !important;
+  bottom: 16px;
+  left: 50%;
+  position: fixed;
+  transform: translate(-50%, -20px);
+  animation: silktide-slideInDown-bottomCenter 350ms ease-out forwards;
 }
 
 #silktide-banner .preferences {
-  all: unset !important;
-  display: flex !important;
-  gap: 5px !important;
-  border: none !important;
-  padding: 0px !important;
-  background-color: transparent !important;
-  color: var(--primaryColor) !important;
-  cursor: pointer !important;
-  font-size: 16px !important;
-  font-family: var(--fontFamily) !important;
-  align-items: center !important;
+  display: flex;
+  gap: 5px;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+  color: var(--primaryColor);
+  cursor: pointer;
+  font-size: 16px;
 }
 
 #silktide-banner .preferences span {
-  all: unset !important;
-  display: block !important;
-  white-space: nowrap !important;
-  text-decoration: underline !important;
-  font-family: var(--fontFamily) !important;
-  font-size: 16px !important;
-  color: var(--primaryColor) !important;
+  display: block;
+  white-space: nowrap;
+  text-decoration: underline;
 }
 
 #silktide-banner .preferences span:hover {
-  color: var(--textColor) !important;
+  color: var(--textColor);
 }
 
 #silktide-banner .preferences:after {
-  content: '>' !important;
-  display: block !important;
-  text-decoration: none !important;
-  color: var(--primaryColor) !important;
-  font-family: var(--fontFamily) !important;
+  display: block;
+  content: '>';
+  text-decoration: none;
 }
 
 #silktide-banner p {
-  all: unset !important;
-  font-size: 16px !important;
-  line-height: 24px !important;
-  margin: 0px 0px 15px 0px !important;
-  display: block !important;
-  font-family: var(--fontFamily) !important;
-  color: var(--textColor) !important;
-  font-weight: normal !important;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0px 0px 15px;
 }
 
 #silktide-banner a {
-  all: unset !important;
-  display: inline-block !important;
-  color: var(--primaryColor) !important;
-  text-decoration: underline !important;
-  background-color: transparent !important;
-  cursor: pointer !important;
-  font-family: var(--fontFamily) !important;
+  display: inline-block;
+  color: var(--primaryColor);
+  text-decoration: underline;
+  background-color: var(--backgroundColor);
 }
 
 #silktide-banner a:hover {
-  color: var(--textColor) !important;
+  color: var(--textColor);
 }
 
 #silktide-banner a.silktide-logo {
-  all: unset !important;
-  display: block !important;
-  fill: var(--primaryColor) !important;
-  margin-left: auto !important;
-  width: 24px !important;
-  height: 24px !important;
-  cursor: pointer !important;
-  flex-shrink: 0 !important;
+  display: block;
+  fill: var(--primaryColor); /* passed down to svg > path */
+  margin-left: auto;
+  width: 24px;
+  height: 24px;
 }
 
+
 #silktide-banner .actions {
-  all: unset !important;
-  display: flex !important;
-  gap: 16px !important;
-  flex-direction: column !important;
-  margin-top: 24px !important;
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+  margin-top: 24px;
 }
 
 @media (min-width: 600px) {
   #silktide-banner .actions {
-    flex-direction: row !important;
-    align-items: center !important;
+    flex-direction: row;
+    align-items: center;
   }
 }
 
 #silktide-banner .actions-row {
-  all: unset !important;
-  display: flex !important;
-  gap: 16px !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  flex-grow: 1 !important;
+  display: flex;
+  gap: 16px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
 }
 
 /* --------------------------------
   Modal
 -------------------------------- */
 #silktide-modal {
-  all: unset !important;
-  display: none !important;
-  pointer-events: auto !important;
-  width: 800px !important;
-  max-width: 100% !important;
-  max-height: 100% !important;
-  border: 0px !important;
-  transform: translate(0px, -20px) !important;
-  opacity: 0 !important;
-  animation: silktide-slideInUp-center 350ms ease-out forwards !important;
-  box-shadow: -5px 5px 10px 0px #00000012, 0px 0px 50px 0px #0000001a !important;
-  font-family: var(--fontFamily) !important;
-  color: var(--textColor) !important;
-  flex-direction: column !important;
-  padding: 30px !important;
-  background-color: var(--backgroundColor) !important;
-  border-radius: 5px !important;
-  box-sizing: border-box !important;
+  display: none;
+  pointer-events: auto;
+  width: 800px;
+  max-width: 100%;
+  max-height: 100%;
+  border: 0px;
+  transform: translate(0px, -20px);
+  opacity: 0;
+  animation: silktide-slideInUp-center 350ms ease-out forwards;
+  box-shadow: -5px 5px 10px 0px #00000012, 0px 0px 50px 0px #0000001a;
+  font-family: var(--fontFamily);
+  color: var(--textColor);
+  flex-direction: column;
+  padding: 30px;
+  background-color: var(--backgroundColor);
+  border-radius: 5px;
+  box-sizing: border-box;
 }
 
 /* --------------------------------
   Modal - Header
 -------------------------------- */
 #silktide-modal header {
-  all: unset !important;
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-  margin-bottom: 20px !important;
-  gap: 16px !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 16px;
 }
 
 #silktide-modal h1 {
-  all: unset !important;
-  font-family: var(--fontFamily) !important;
-  color: var(--textColor) !important;
-  font-size: 24px !important;
-  font-weight: 500 !important;
-  margin: 0px !important;
-  display: block !important;
-  line-height: 1.2 !important;
+  font-family: var(--fontFamily);
+  color: var(--textColor);
+  font-size: 24px;
+  font-weight: 500;
+  margin: 0px;
 }
 
 #silktide-modal .modal-close {
-  all: unset !important;
-  display: inline-flex !important;
-  border: none !important;
-  padding: 10px !important;
-  cursor: pointer !important;
-  background: transparent !important;
-  color: var(--primaryColor) !important;
-  align-items: center !important;
-  justify-content: center !important;
-  flex-shrink: 0 !important;
+  display: inline-flex;
+  border: none;
+  padding: 10px;
+  border: 0px;
+  cursor: pointer;
+  background: var(--backgroundColor);
+  color: var(--primaryColor);
 }
 
 #silktide-modal .modal-close svg {
-  fill: var(--primaryColor) !important;
-  width: 20px !important;
-  height: 20px !important;
+  fill: var(--primaryColor);
 }
 
 /* --------------------------------
@@ -340,254 +308,211 @@
 -------------------------------- */
 
 #silktide-modal section {
-  all: unset !important;
-  flex: 1 !important;
-  overflow-y: auto !important;
-  margin-top: 32px !important;
-  padding-right: 7px !important;
-  display: block !important;
+  flex: 1;
+  overflow-y: auto;
+  margin-top: 32px;
+  padding-right: 7px; /* Prevents scrollbar from appearing over the switches */
 }
 
 #silktide-modal section::-webkit-scrollbar {
-  display: block !important;
-  width: 5px !important;
+  display: block; /* Force scrollbars to show */
+  width: 5px; /* Width of the scrollbar */
 }
 
 #silktide-modal section::-webkit-scrollbar-thumb {
-  background-color: var(--textColor) !important;
-  border-radius: 10px !important;
+  background-color: var(--textColor); /* Color of the scrollbar thumb */
+  border-radius: 10px; /* Rounded corners for the thumb */
 }
 
 #silktide-modal p {
-  all: unset !important;
-  font-size: 16px !important;
-  line-height: 24px !important;
-  color: var(--textColor) !important;
-  margin: 0px 0px 15px 0px !important;
-  display: block !important;
-  font-family: var(--fontFamily) !important;
-  font-weight: normal !important;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--textColor);
+  margin: 0px 0px 15px;
 }
 
 #silktide-modal p:last-of-type {
-  margin-bottom: 0px !important;
+  margin: 0px;
 }
 
 #silktide-modal fieldset {
-  all: unset !important;
-  padding: 0px !important;
-  border: none !important;
-  margin: 0px 0px 32px 0px !important;
-  display: block !important;
+  padding: 0px;
+  border: none;
+  margin: 0px 0px 32px;
 }
 
 #silktide-modal fieldset:last-of-type {
-  margin-bottom: 0px !important;
+  margin: 0px;
 }
 
 #silktide-modal legend {
-  all: unset !important;
-  padding: 0px !important;
-  margin: 0px 0px 10px 0px !important;
-  font-weight: 700 !important;
-  color: var(--textColor) !important;
-  font-size: 16px !important;
-  display: block !important;
-  font-family: var(--fontFamily) !important;
-  line-height: 1.2 !important;
+  padding: 0px;
+  margin: 0px 0px 10px;
+  font-weight: 700;
+  color: var(--textColor);
+  font-size: 16px;
 }
 
 #silktide-modal .cookie-type-content {
-  all: unset !important;
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: flex-start !important;
-  gap: 24px !important;
-}
-
-#silktide-modal .cookie-type-description {
-  all: unset !important;
-  display: block !important;
-  flex: 1 !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;  
 }
 
 /* --------------------------------
   Modal - Switches
 -------------------------------- */
 #silktide-modal .switch {
-  all: unset !important;
-  flex-shrink: 0 !important;
-  position: relative !important;
-  display: inline-block !important;
-  height: 34px !important;
-  width: 74px !important;
-  cursor: pointer !important;
+  flex-shrink: 0;
+  position: relative;
+  display: inline-block;
+  height: 34px;
+  width: 74px;
+  cursor: pointer;
 }
 
+/* #silktide-modal .switch:focus-within {
+  outline: none;
+  box-shadow: var(--focus);
+  border-radius: 25px;
+} */
+
 #silktide-modal .switch input {
-  all: unset !important;
-  opacity: 0 !important;
-  position: absolute !important;
-  width: 100% !important;
-  height: 100% !important;
-  cursor: pointer !important;
+  opacity: 0;
+  position: absolute;
 }
 
 /* Unchecked Switch Styles */
 #silktide-modal .switch__pill {
-  all: unset !important;
-  position: relative !important;
-  display: block !important;
-  height: 34px !important;
-  width: 74px !important;
-  background: var(--textColor) !important;
-  border-radius: 25px !important;
+  position: relative;
+  display: block;
+  height: 34px;
+  width: 74px;
+  background: var(--textColor);
+  border-radius: 25px;
 }
 
 #silktide-modal .switch__dot {
-  all: unset !important;
-  position: absolute !important;
-  top: 2px !important;
-  left: 2px !important;
-  display: block !important;
-  height: 30px !important;
-  width: 30px !important;
-  background: var(--backgroundColor) !important;
-  border-radius: 50% !important;
-  transition: left 150ms ease-out !important;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  display: block;
+  height: 30px;
+  width: 30px;
+  background: var(--backgroundColor);
+  border-radius: 50%;
+  transition: left 150ms ease-out;
 }
 
 #silktide-modal .switch__off,
 #silktide-modal .switch__on {
-  all: unset !important;
-  text-transform: uppercase !important;
-  font-size: 15px !important;
-  font-weight: 500 !important;
-  color: var(--backgroundColor) !important;
-  position: absolute !important;
-  top: 7px !important;
-  right: 8px !important;
-  transition: right 150ms ease-out, opacity 150ms ease-out !important;
-  font-family: var(--fontFamily) !important;
-  pointer-events: none !important;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--backgroundColor);
+  position: absolute;
+  top: 7px;
+  right: 8px;
+  transition: right 150ms ease-out, opacity 150ms ease-out;
 }
 
 #silktide-modal .switch__off {
-  opacity: 1 !important;
+  opacity: 1;
 }
 
 #silktide-modal .switch__on {
-  opacity: 0 !important;
+  opacity: 0;
 }
 
 /* Checked Switch Styles */
 #silktide-modal .switch input:checked + .switch__pill {
-  background: var(--primaryColor) !important;
+  background: var(--primaryColor);
 }
 
 #silktide-modal .switch input:checked ~ .switch__dot {
-  left: calc(100% - 32px) !important;
+  left: calc(100% - 32px);
 }
 
 #silktide-modal .switch input:checked ~ .switch__off {
-  right: calc(100% - 32px) !important;
-  opacity: 0 !important;
+  right: calc(100% - 32px);
+  opacity: 0;
 }
 
 #silktide-modal .switch input:checked ~ .switch__on {
-  right: calc(100% - 34px) !important;
-  opacity: 1 !important;
+  right: calc(100% - 34px);
+  opacity: 1;
 }
 
 /* Disabled Switch Styles */
 #silktide-modal .switch input:disabled + .switch__pill {
-  opacity: 0.65 !important;
-  cursor: not-allowed !important;
-}
-
-#silktide-modal .switch input:disabled {
-  cursor: not-allowed !important;
+  opacity: 0.65;
+  cursor: not-allowed;
 }
 
 /* --------------------------------
   Modal - Footer
 -------------------------------- */
 #silktide-modal footer {
-  all: unset !important;
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 16px !important;
-  margin-top: 24px !important;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
 }
 
 @media (min-width: 600px) {
   #silktide-modal footer {
-    flex-direction: row !important;
-    align-items: center !important;
+    flex-direction: row;
+    align-items: center;
   }
 }
 
 #silktide-modal footer a {
-  all: unset !important;
-  margin-left: auto !important;
-  display: inline-block !important;
-  color: var(--primaryColor) !important;
-  text-decoration: underline !important;
-  cursor: pointer !important;
-  font-family: var(--fontFamily) !important;
-  font-size: 16px !important;
-}
-
-#silktide-modal footer a:hover {
-  color: var(--textColor) !important;
+  margin-left: auto;
 }
 
 /* Cookie Icon */
 #silktide-cookie-icon {
-  all: unset !important;
-  display: none !important;
-  position: fixed !important;
-  bottom: 10px !important;
-  left: 10px !important;
-  justify-content: center !important;
-  align-items: center !important;
-  width: 60px !important;
-  height: 60px !important;
-  border-radius: 50% !important;
-  padding: 0px !important;
-  border: none !important;
-  background-color: var(--cookieIconColor) !important;
-  cursor: pointer !important;
-  box-shadow: 0px 0px 6px 0px #0000001a !important;
-  pointer-events: auto !important;
-  animation: silktide-fadeIn 0.3s ease-in-out forwards !important;
+  display: none;
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  padding: 0px;
+  border: none;
+  background-color: var(--cookieIconColor);
+  cursor: pointer;
+  box-shadow: 0px 0px 6px 0px #0000001a;
+  pointer-events: auto;
+  animation: silktide-fadeIn 0.3s ease-in-out forwards;
 }
 
 #silktide-cookie-icon.bottomRight {
-  left: auto !important;
-  right: 10px !important;
+  left: auto;
+  right: 10px;
 }
 
 #silktide-cookie-icon svg {
-  fill: var(--cookieIconBackgroundColor) !important;
-  width: 38px !important;
-  height: 38px !important;
+  fill: var(--cookieIconBackgroundColor);
 }
 
 /* --------------------------------
   Backdrop
 -------------------------------- */
 #silktide-backdrop {
-  all: unset !important;
-  display: none !important;
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  background-color: var(--backdropBackgroundColor) !important;
-  backdrop-filter: blur(var(--backdropBackgroundBlur)) !important;
-  pointer-events: all !important;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--backdropBackgroundColor);
+  backdrop-filter: blur(var(--backdropBackgroundBlur));
+  pointer-events: all;
 }
 
 /* --------------------------------
